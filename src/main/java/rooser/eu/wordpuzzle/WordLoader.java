@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Objects;
 import java.util.Set;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,7 @@ public class WordLoader {
 
         try (Stream<String> lines = Files.lines(path)) {
             words = lines.collect(Collectors.toSet());
+            Logger.getLogger(WordLoader.class.getName()).info("number of loaded words" + words.size());
         }
     }
 
